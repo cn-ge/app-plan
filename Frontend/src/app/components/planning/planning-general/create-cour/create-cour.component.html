@@ -1,0 +1,104 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Ajouter un cours</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <span aria-hidden="true">&times;</span>
+  </div>
+
+  <div class="modal-body">
+
+      <!-- message -->
+      <div class="form-group"> 
+          <div *ngIf="confirmMsg != null" class="alert alert-success" [hidden]="!confirmMsg"> {{ confirmMsg }}</div>
+          <div *ngIf="error != null" class="alert alert-danger" [hidden]="!error.status"> {{ errorMsg }} </div>
+      </div>
+
+      <!-- Liste des modules -->
+      <div class="form-group">
+        <label for="complementaryModulesControl">Module</label>
+        <select name="complementaryModules" [(ngModel)]="complementaryCours.complementary_module_id" class="form-control"   [disabled]="confirmMsg != null">
+            <option class="dropdown" [value]="" disabled>Choisissez un module</option>
+            <option class="dropdown" *ngFor="let complementaryModule of complementaryModules" [value]="complementaryModule.id">  
+              {{complementaryModule.label}} - {{complementaryModule.description}}</option>
+        </select>
+      </div>
+      <div class="alert alert-danger" [hidden]="!error.complementary_module_id">{{ error.complementary_module_id }}</div>
+
+      <!-- Créer un module -->
+      <app-create-module (closed)="receiveMessage($event)"></app-create-module>
+
+      <!-- durée spécifique du cours -->
+      <div class="form-group">
+        <!-- date à redéfinir ? -->
+        <input id="dates_a_definir" class="form-control" type="checkbox" [(ngModel)]="complementaryCours.date_to_be_defined"  [disabled]="confirmMsg != null" (click)="changeDateToBeDefined(dateToBeDefined)" class="text-center"/>
+        <label for="dates_a_definir"><span class="label">Dates à redéfinir</span></label>  
+        <!-- si oui, durée à prendre en compte -->
+        <div  *ngIf="complementaryCours.date_to_be_defined" class="form-inline">
+          <input id="expected_hours" type="text" [(ngModel)]="complementaryCours.expected_time_hour" 
+              class="form-control text-center" [disabled]="confirmMsg != null"/>
+          <label for="expected_hours"><span class="label">Heures à comptabiliser</span></label>  
+          <div  class="alert alert-danger" [hidden]="!error.expected_time_hour">{{ error.expected_time_hour }}</div>
+        </div>
+      </div>
+     
+
+      <!-- date de début du cours -->
+      <div class="form-group">
+        <label for="date_debut">Date de début du cours</label>
+        <div class="input-group">
+          <input id="date_debut" name="date_debut" class="form-control  c-datepicker text-center"  [disabled]="confirmMsg != null"
+              placeholder="{{ today | date: 'dd-MM-yyyy' }}" name="dp_debut" ngbDatepicker 
+              [(ngModel)]="date_start" [dayTemplate]="customDay"  (click)="datePicker.toggle()"
+              #datePicker="ngbDatepicker" value="{{ today | date: 'dd-MM-yyyy' }}" >
+          <div class="input-group-append">
+            <i class="fa fa-calendar btn btn-primary btn-sm waves-light calendar" aria-hidden="true" (click)="datePicker.toggle()"></i>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-danger" [hidden]="!error.date_start">{{ error.date_start }}</div>
+
+
+      
+      <!-- date de fin du cours -->
+      <div class="form-group">
+          <label for="date_fin">Date de fin du cours</label>
+          <div class="input-group" >
+            <input id="date_fin" name="date_fin" class="form-control c-datepicker text-center"  [disabled]="confirmMsg != null"
+                placeholder="{{ today | date: 'dd-MM-yyyy' }}" name="dp_fin" ngbDatepicker 
+                [(ngModel)]="date_end" [dayTemplate]="customDay"  (click)="datePickerFin.toggle()"
+                #datePickerFin="ngbDatepicker" value="{{ today | date: 'dd-MM-yyyy' }}" >
+            <div class="input-group-append">
+              <i class="fa fa-calendar btn btn-primary btn-sm waves-light calendar" aria-hidden="true" (click)="datePickerFin.toggle()"></i>
+            </div>
+          </div>
+      </div>
+      <div class="alert alert-danger" [hidden]="!error.date_end">{{ error.date_end }}</div>
+  </div>
+  
+  <!-- Enregistrer -->
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary btn-sm waves-light" [disabled]="confirmMsg != null"
+     (click)="enregistrerCours()">Enregistrer</button>
+  </div>
+
+</ng-template>
+
+<!-- Appel de la modal -->
+<div class="text-center">
+  <input type="submit" value="Ajouter un cours" class="btn btn-primary btn-sm waves-light" (click)="open(content)">
+</div>
+
+
+<!-- template des jours -->
+<ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected" 
+let-disabled="disabled" let-focused="focused">
+  <span class="custom-day" 
+      [class.weekend]="isWeekend(date)" [class.focused]="focused" 
+      [class.bg-primary]="selected"
+      [class.hidden]="date.month !== currentMonth"
+      [class.text-muted]="disabled">
+      {{ date.day }}
+  </span>
+</ng-template>

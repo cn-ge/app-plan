@@ -4,7 +4,9 @@
 /Backend/storage
 
 # Backend ERP
-/Backend-ERP
+/Backend-ERP/vendor
+/Backend-ERP/.env
+/Backend-ERP/storage
 
 # DB Script
 /DBScript

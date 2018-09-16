@@ -19,24 +19,12 @@ Route::group([
         
     ],
 ], function () {
-
-    Route::resource('stagiaireparentreprise', 'StagiaireParEntrepriseController', ['except' => ['create', 'edit']]);
-    Route::resource('entreprise', 'EntrepriseController', ['except' => ['create', 'edit']]);
-    Route::resource('titre', 'TitreController', ['except' => ['create', 'edit']]);
-    Route::resource('stagiaire', 'StagiaireController', ['except' => ['create', 'edit']]);
-    
-    Route::resource('module', 'ModuleController', ['except' => ['create', 'edit']]);
     Route::resource('ctrPrioritization', 'CtrPrioritizationController', ['except' => ['create', 'edit']]);
     Route::resource('ctrExemption', 'CtrExemptionController', ['except' => ['create', 'edit']]);
     Route::resource('ctrDisponibility', 'CtrDisponibilityController', ['except' => ['create', 'edit']]);
     Route::resource('complementaryCourse', 'ComplementaryCourseController', ['except' => ['create', 'edit']]);
     Route::resource('complementaryModule', 'ComplementaryModuleController', ['except' => ['create', 'edit']]);
     Route::resource('chainingModule', 'ChainingModuleController', ['except' => ['create', 'edit']]);
-    Route::resource('cours', 'CoursController', ['except' => ['create', 'edit']]);
-    Route::resource('lieu', 'LieuController', ['except' => ['create', 'edit']]);
-
-    
-    Route::get('getModuleByLibelleCourt/{LibelleCourt}', 'ModuleController@getModuleByLibelleCourt');
 
 
     // ActivityLogController Routes
@@ -49,7 +37,7 @@ Route::group([
 
     // UserController Routes
     Route::resource('user', 'UserController', ['except' => ['create', 'edit', 'destroy']]);
-    Route::put('userpassword/{id}', 'UserController@updatePassword');
+    Route::put('password/{id}', 'UserController@updatePassword');
 
     // AuthController Routes
     Route::post('logout', 'AuthController@logout');
@@ -58,9 +46,8 @@ Route::group([
     Route::post('refresh', 'AuthController@refresh');
 
     // StatusServiceController Routes
-    Route::get('backend', 'StatusServiceController@backend');
-    Route::get('erpstatus', 'StatusServiceController@erpStatus');
-    Route::get('enidbstatus', 'StatusServiceController@eniDbStatus');
+    Route::get('backend-status', 'StatusServiceController@backend');
+    Route::get('db-status', 'StatusServiceController@eniDbStatus');
 
     // PlanningController Routes
     Route::resource('planning', 'PlanningController', ['except' => ['create', 'edit']]);
@@ -68,10 +55,5 @@ Route::group([
     Route::get('planningGlobal/{id}', 'PlanningController@showWithGlobal');
     Route::get('setPlanningBroken', 'PlanningController@setPlanningBroken');
     Route::get('getPlanningBroken', 'PlanningController@getPlanningBroken');
-
-    // FormationController Routes
-    Route::get('formationGlobal/{id}', 'FormationController@showWithGlobal');
-    Route::get('formationByPeriodLieu/{formation}/{planning}', 'FormationController@showByPeriodLieu');
-    Route::resource('formation', 'FormationController', ['except' => ['create', 'edit']]);
 
 });

@@ -12,10 +12,10 @@ import {
  } from '@angular/material';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FooterComponent } from './layout/footer/footer.component';
+import { FooterComponent } from './components/layout/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { DataService } from './utils/services/data.service';
+import { DataService } from './services/data.service';
 
 
 @NgModule({

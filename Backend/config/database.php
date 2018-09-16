@@ -68,28 +68,16 @@ return [
         ],
 
         'eniplanning' => [
-            'driver' =>  env('DB_DRIVER_ENIPLANNING',''),
-            'host' => env('DB_HOST_ENIPLANNING', ''),
-            'port' => env('DB_PORT_ENIPLANNING', ''),
-            'database' => env('DB_DATABASE_ENIPLANNING', ''),
-            'username' => env('DB_USERNAME_ENIPLANNING', ''),
-            'password' => env('DB_PASSWORD_ENIPLANNING', ''),
-            'collation' =>  env('DB_COLLATION_ENIPLANNING', ''), 
-            'charset' => env('DB_CHARSET_ENIPLANNING', ''), 
+            'driver' =>  env('DB_DRIVER',''),
+            'host' => env('DB_HOST', ''),
+            'port' => env('DB_PORT', ''),
+            'database' => env('DB_DATABASE', ''),
+            'username' => env('DB_USERNAME', ''),
+            'password' => env('DB_PASSWORD', ''),
+            'collation' =>  env('DB_COLLATION', ''), 
+            'charset' => env('DB_CHARSET', ''), 
             'prefix' => '',
-        ],
-
-        'enierp' => [
-            'driver' =>  env('DB_DRIVER_ERP',''),
-            'host' => env('DB_HOST_ERP', ''),
-            'port' => env('DB_PORT_ERP', ''),
-            'database' => env('DB_DATABASE_ERP', ''),
-            'username' => env('DB_USERNAME_ERP', ''),
-            'password' => env('DB_PASSWORD_ERP', ''),
-            'collation' =>  env('DB_COLLATION_ERP', ''), 
-            'charset' => env('DB_CHARSET_ERP', ''), 
-            'prefix' => '',
-        ],
+        ]
 
     ],
 
