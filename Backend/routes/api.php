@@ -74,6 +74,4 @@ Route::group([
     Route::get('formationByPeriodLieu/{formation}/{planning}', 'FormationController@showByPeriodLieu');
     Route::resource('formation', 'FormationController', ['except' => ['create', 'edit']]);
 
-    // DocumentController Routes
-    Route::get('document/getplanning','DocumentController@getPlanning');
 });
