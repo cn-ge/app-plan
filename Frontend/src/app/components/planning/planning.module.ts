@@ -12,7 +12,7 @@ import { LeftPanelComponent } from './planning-general/left-panel/left-panel.com
 import { RightPanelComponent } from './planning-general/right-panel/right-panel.component';
 import { HeaderComponent } from './header/header.component';
 import { MenuModule } from '../layout/menu/menu.module';
-import { ModalCreatePlanningComponent } from './planning-general/modal-create-planning/modal-create-planning.component';
+import { CreatePlanningComponent } from './planning-general/create-planning/create-planning.component';
 import { MatButtonModule, MatCheckboxModule, MatDatepickerModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material';
 import { MatMomentDateModule, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
 import { ExportComponent } from './planning-general/export/export.component';
@@ -29,7 +29,7 @@ import { AlertPanelComponent } from './planning-general/alert-panel/alert-panel.
     RightPanelComponent,
     PurgerPlanningComponent,
     HeaderComponent,
-    ModalCreatePlanningComponent,
+    CreatePlanningComponent,
     ExportComponent,
     CreateCourComponent,
     CreateModuleComponent,

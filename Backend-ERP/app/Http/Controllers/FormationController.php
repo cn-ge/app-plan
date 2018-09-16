@@ -36,6 +36,12 @@ class FormationController extends Controller
         return Formation::findOrFail(trim($formation->CodeFormation))->toJson();
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function showWithGlobal(Formation $formation)
     {
         Log::info('=> ' . get_class($this) . ' :: ' . __FUNCTION__ .' ()');

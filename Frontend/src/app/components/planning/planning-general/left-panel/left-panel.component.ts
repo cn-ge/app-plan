@@ -119,18 +119,6 @@ export class LeftPanelComponent implements OnInit {
 						}
 					});
 				}
-				// this.complementaryModules.complementary_courses.filter(cours =>
-				// 		 (cours.date_start > this.selectedPlanning.date_start
-				// 			&& cours.date_end < this.selectedPlanning.date_end)
-				// );
-				// this.complementaryModules.complementary_courses.sort(function(a,b) {
-				// 		if (a.date_start < b.date_start)
-				// 			return -1;
-				// 		else if (a.date_start > b.date_start)
-				// 			return 1;
-				// 		return 0;
-				// 	});
-				// });
 			},
 			(error) => console.log(error)
 		)

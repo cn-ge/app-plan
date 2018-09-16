@@ -8,7 +8,6 @@ import { Stagiaire } from '../../../../models/stagiaire';
 import { TitreService } from '../../../../services/titre.service'
 import { FormationService } from '../../../../services/formation.service'
 import { PlanningService } from '../../../../services/planning.service'  
-import { ActivatedRoute } from '@angular/router';
 import { EntrepriseService } from '../../../../services/entreprise.service';
 import { StagiaireParEntreprise } from '../../../../models/stagiaireparentreprise';
 import { DatePipe } from '@angular/common';
@@ -131,7 +130,7 @@ export class ExportComponent implements OnInit, OnDestroy {
 
   // Chargement du planning
   getPlanning() {
-    if (sessionStorage.getItem('selectedPlanning') != null) {
+    if (JSON.parse(sessionStorage.getItem('selectedPlanning')) != null) {
       var idPlanning = JSON.parse(sessionStorage.getItem('selectedPlanning')).id;
       return this.planningService.getPlanningById(idPlanning).subscribe(
         (data:Planning) => {

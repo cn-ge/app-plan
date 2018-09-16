@@ -21,6 +21,7 @@ export const API = {
     'lieu' :                        (CONFIG.backend_enierp_url + 'lieu'),
     'stagiaire' :                   (CONFIG.backend_enierp_url + 'stagiaire'),
     'formation' :                   (CONFIG.backend_enierp_url + 'formation'),
+    'formationGlobal' :             (CONFIG.backend_enierp_url + 'formationGlobal'),
     'formationByPeriodLieu':        (CONFIG.backend_enierp_url + 'formationByPeriodLieu'),
     'stagiaireParEntreprise':       (CONFIG.backend_enierp_url + 'stagiaireparentreprise'),
     'entreprise':                   (CONFIG.backend_enierp_url + 'entreprise'),

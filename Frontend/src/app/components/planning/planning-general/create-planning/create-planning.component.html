@@ -42,43 +42,73 @@
                         </div>
                         <!-- Partie droite de la modal de création -->
                         <div class="col-xs-12 col-md-6 row">
-                            <div class="col-12 text-center">
-                                <mat-form-field>
-                                    <input matInput datetime-local [(ngModel)]="selectedDebutC" [matDatepicker]="date_debut_contract"  placeholder="Date de début de contrat">
-                                    <mat-datepicker-toggle matSuffix [for]="date_debut_contract"></mat-datepicker-toggle>
-                                    <mat-datepicker #date_debut_contract ></mat-datepicker>
-                                </mat-form-field>
+
+                            <!-- date de début de contrat -->
+                            <div class="form-group">
+                                <label for="selectedDebutC">Date de début du cours</label>
+                                <div class="input-group">
+                                <input id="selectedDebutC" name="date_debut" class="form-control  c-datepicker text-center"  [disabled]="confirmMsg != null"
+                                    placeholder="{{ today | date: 'dd-MM-yyyy' }}" name="dp_debut" ngbDatepicker 
+                                    [dayTemplate]="customDay"  (click)="datePickerCD.toggle()"
+                                    #datePickerCD="ngbDatepicker" value="{{ today | date: 'dd-MM-yyyy' }}" >
+                                    <!-- [(ngModel)]="selectedDebutC" -->
+                                <div class="input-group-append">
+                                    <i class="fa fa-calendar btn btn-primary btn-sm waves-light calendar" aria-hidden="true" (click)="datePickerCD.toggle()"></i>
+                                </div>
+                                </div>
                             </div>
-                            <div class="col-12 text-center">
-                                <mat-form-field>
-                                    <input matInput [(ngModel)]="selectedFinC" [matDatepicker]="date_fin_contract" placeholder="Date de fin de contrat">
-                                    <mat-datepicker-toggle matSuffix [for]="date_fin_contract"></mat-datepicker-toggle>
-                                    <mat-datepicker #date_fin_contract></mat-datepicker>
-                                </mat-form-field>
+                            <div class="alert alert-danger" [hidden]="!error">{{ error }}</div>   
+
+                            <!-- date de fin de contrat -->
+                            <div class="form-group">
+                                <label for="date_debut">Date de début du cours</label>
+                                <div class="input-group">
+                                <input id="date_debut" name="date_debut" class="form-control  c-datepicker text-center"  [disabled]="confirmMsg != null"
+                                    placeholder="{{ today | date: 'dd-MM-yyyy' }}" name="dp_debut" ngbDatepicker 
+                                    [dayTemplate]="customDay"  (click)="datePickerCF.toggle()"
+                                    #datePickerCF="ngbDatepicker" value="{{ today | date: 'dd-MM-yyyy' }}" >
+                                    <!-- [(ngModel)]="selectedFinC" -->
+                                <div class="input-group-append">
+                                    <i class="fa fa-calendar btn btn-primary btn-sm waves-light calendar" aria-hidden="true" (click)="datePickerCF.toggle()"></i>
+                                </div>
+                                </div>
                             </div>
-                            <div class="col-12 text-center">
-                                <mat-form-field>
-                                    <input matInput [(ngModel)]="selectedDebutF" [matDatepicker]="date_debut_formation" placeholder="Date de début de formation">
-                                    <mat-datepicker-toggle matSuffix [for]="date_debut_formation"></mat-datepicker-toggle>
-                                    <mat-datepicker #date_debut_formation></mat-datepicker>
-                                </mat-form-field>
+                            <div class="alert alert-danger" [hidden]="!error">{{ error }}</div>   
+
+                            <!-- date de début de formation -->
+                            <div class="form-group">
+                                <label for="selectedDebutF">Date de début du cours</label>
+                                <div class="input-group">
+                                <input id="selectedDebutF" name="date_debut" class="form-control  c-datepicker text-center"  [disabled]="confirmMsg != null"
+                                    placeholder="{{ today | date: 'dd-MM-yyyy' }}" name="dp_debut" ngbDatepicker 
+                                    [dayTemplate]="customDay"  (click)="datePickerFD.toggle()"
+                                    #datePickerFD="ngbDatepicker" value="{{ today | date: 'dd-MM-yyyy' }}" >
+                                    <!-- [(ngModel)]="selectedDebutF" -->
+                                <div class="input-group-append">
+                                    <i class="fa fa-calendar btn btn-primary btn-sm waves-light calendar" aria-hidden="true" (click)="datePickerFD.toggle()"></i>
+                                </div>
+                                </div>
                             </div>
-                            <div class="col-12 text-center">
-                                <mat-form-field>
-                                    <input matInput [(ngModel)]="selectedFinF" [matDatepicker]="date_fin_formation" placeholder="Date de fin de formation">
-                                    <mat-datepicker-toggle matSuffix [for]="date_fin_formation"></mat-datepicker-toggle>
-                                    <mat-datepicker #date_fin_formation></mat-datepicker>
-                                </mat-form-field>
+                            <div class="alert alert-danger" [hidden]="!error">{{ error }}</div>  
+
+                            <!-- date de fin de formation -->
+                            <div class="form-group">
+                                <label for="selectedFinF">Date de début du cours</label>
+                                <div class="input-group">
+                                <input id="selectedFinF" name="date_debut" class="form-control  c-datepicker text-center"  [disabled]="confirmMsg != null"
+                                    placeholder="{{ today | date: 'dd-MM-yyyy' }}" name="dp_debut" ngbDatepicker 
+                                    [dayTemplate]="customDay"  (click)="datePickerFF.toggle()"
+                                    #datePickerFF="ngbDatepicker" value="{{ today | date: 'dd-MM-yyyy' }}" >
+                                    <!-- [(ngModel)]="selectedFinF" -->
+                                <div class="input-group-append">
+                                    <i class="fa fa-calendar btn btn-primary btn-sm waves-light calendar" aria-hidden="true" (click)="datePickerFF.toggle()"></i>
+                                </div>
+                                </div>
                             </div>
+                            <div class="alert alert-danger" [hidden]="!error">{{ error }}</div>     
+                                  
                         </div>
                     </div>
-                    <!-- <div class="row">
-                        <div class="col-8 offset-2 pb-4">
-                            <div class="alert alert-danger col-6 offset-3 text-center" [hidden]="!errorCreatePlanning">
-                                {{ errorCreatePlanning }}
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
                 <!-- Partie contraintes planning -->
                 <div [hidden]="!isCtrVisible">

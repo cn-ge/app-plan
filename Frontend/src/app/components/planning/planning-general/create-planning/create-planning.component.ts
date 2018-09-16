@@ -16,11 +16,11 @@ import { ModalDirective } from 'angular-bootstrap-md';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-modal-create-planning',
-  templateUrl: './modal-create-planning.component.html',
-  styleUrls: ['./modal-create-planning.component.scss']
+  selector: 'app-create-planning',
+  templateUrl: './create-planning.component.html',
+  styleUrls: ['./create-planning.component.scss']
 })
-export class ModalCreatePlanningComponent implements OnInit {
+export class CreatePlanningComponent implements OnInit {
 
     formations:             Formation[];
     lieux:                  Lieu[];
@@ -37,6 +37,7 @@ export class ModalCreatePlanningComponent implements OnInit {
     user:                   User;
     isCtrVisible:           Boolean;
     ctrDisponibilities:     CtrDisponibility[];
+    error:                  string[];
 
     errorCreatePlanning:    String;
     modalUpdateMode:        Boolean; //false if create mode, true if update mode
