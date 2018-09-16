@@ -1,0 +1,13 @@
+/Backend/vendor
+/Backend/.env
+/Backend/storage
+
+
+/DBScript
+
+/Frontend/node_modules
+/Frontend/package-lock.json
+/Frontend/dist
+/Frontend/tmp
+/Frontend/out-tsc
+
