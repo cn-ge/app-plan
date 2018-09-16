@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\erp\Titre;
 use Illuminate\Http\Request;
-use App\Models\Lieu;
-use Log;
+use Illuminate\Support\Facades\Log;
+use PhpParser\Node\Param;
+use Faker\Provider\ka_GE\DateTime;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
-class LieuController extends Controller
+class TitreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +20,7 @@ class LieuController extends Controller
     public function index()
     {
         Log::info('=> ' . get_class($this) . ' :: ' . __FUNCTION__ .' ()');
-        return Lieu::all()->toJson();
+        return Titre::all()->toJson();
     }
 
     /**
@@ -25,9 +29,9 @@ class LieuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Lieu $lieu)
+    public function show(Titre $titre)
     {
         Log::info('=> ' . get_class($this) . ' :: ' . __FUNCTION__ .' ()');
-        return $lieu->toJson();
+        return Titre::findOrFail(trim($titre->CodeTitre))->toJson();
     }
 }

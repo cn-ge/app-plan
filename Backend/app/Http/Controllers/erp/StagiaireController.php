@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Stagiaire;
+use App\Models\erp\Stagiaire;
 use Illuminate\Http\Request;
 use Log;
 use Illuminate\Support\facades\Config;

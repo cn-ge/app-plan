@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ComplementaryModule extends Model
 {
+    protected $connection = 'eniplanning';
     protected $fillable = ['label', 'description', 'duration'];
 
     public function complementaryCourses()

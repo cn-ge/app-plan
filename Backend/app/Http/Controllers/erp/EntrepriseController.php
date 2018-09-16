@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\facades\Config;
+use App\Models\erp\Entreprise;
+use App\Models\erp\StagiaireParEntreprise;
+use App\Models\erp\Stagiaire;
+use App\Http\Controllers\erp\StagiaireParEntrepriseController;
 use Illuminate\Http\Request;
-use App\Models\Cours;
+use Illuminate\Support\Facades\DB;
 use Log;
 
-class CoursController extends Controller
+
+class EntrepriseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +22,7 @@ class CoursController extends Controller
     public function index()
     {
         Log::info('=> ' . get_class($this) . ' :: ' . __FUNCTION__ .' ()');
-        return Cours::all()->toJson();
+        return Entreprise::all()->toJson();
     }
 
     /**
@@ -25,9 +31,9 @@ class CoursController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Cours $cour)
+    public function show(Entreprise $entreprise)
     {
         Log::info('=> ' . get_class($this) . ' :: ' . __FUNCTION__ .' ()');
-        return $cour->toJson();
+        return Entreprise::findOrFail(trim($entreprise->CodeEntreprise))->toJson();
     }
 }

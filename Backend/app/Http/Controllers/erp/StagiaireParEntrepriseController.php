@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Stagiaire;
-use App\Models\StagiaireParEntreprise;
+use App\Models\erp\Stagiaire;
+use App\Models\erp\StagiaireParEntreprise;
 use Illuminate\Support\Facades\DB;
 use Log;
 

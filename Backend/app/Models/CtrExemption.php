@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CtrExemption extends Model
 {
+    protected $connection = 'eniplanning';
     protected $fillable = ['planning_id', 'module_id', 'num_week'];
 
     public function planning()

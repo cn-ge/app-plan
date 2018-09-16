@@ -14,6 +14,7 @@ class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
+    protected $connection = 'eniplanning';
     protected $table = 'users';
 
     /**

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Formation;
-use App\Models\Planning;
+use App\Models\erp\Formation;
+use App\Models\erp\Planning;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use PhpParser\Node\Param;

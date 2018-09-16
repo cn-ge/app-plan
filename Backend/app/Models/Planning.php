@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Planning extends Model
 {
+    protected $connection = 'eniplanning';
     protected $fillable = [
         'label',
         'date_start_contract',

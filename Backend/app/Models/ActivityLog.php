@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ActivityLog extends Model
 {
+    protected $connection = 'eniplanning';
     protected $fillable = [
         'log_name',
         'description',

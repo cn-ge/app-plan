@@ -1,13 +1,20 @@
+# Backend Planning
 /Backend/vendor
 /Backend/.env
 /Backend/storage
 
+# Backend ERP
+/Backend-ERP
 
+# DB Script
 /DBScript
 
+# Frontend
 /Frontend/node_modules
 /Frontend/package-lock.json
 /Frontend/dist
 /Frontend/tmp
 /Frontend/out-tsc
 
+# exe
+cache_php.bat

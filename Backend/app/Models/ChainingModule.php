@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChainingModule extends Model
 {
+    protected $connection = 'eniplanning';
     protected $fillable = ['module_id', 'previous_module_id', 'is_required', 'formation_id'];
 
     public function module()

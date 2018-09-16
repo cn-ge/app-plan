@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Titre;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use PhpParser\Node\Param;
-use Faker\Provider\ka_GE\DateTime;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\DB;
+use App\Models\erp\Cours;
+use Log;
 
-class TitreController extends Controller
+class CoursController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +16,7 @@ class TitreController extends Controller
     public function index()
     {
         Log::info('=> ' . get_class($this) . ' :: ' . __FUNCTION__ .' ()');
-        return Titre::all()->toJson();
+        return Cours::all()->toJson();
     }
 
     /**
@@ -29,9 +25,9 @@ class TitreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Titre $titre)
+    public function show(Cours $cour)
     {
         Log::info('=> ' . get_class($this) . ' :: ' . __FUNCTION__ .' ()');
-        return Titre::findOrFail(trim($titre->CodeTitre))->toJson();
+        return $cour->toJson();
     }
 }

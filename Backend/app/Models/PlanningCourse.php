@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PlanningCourse extends Model
 {
+    protected $connection = 'eniplanning';
     protected $fillable = [
         'planning_id',
         'course_id',
