@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { Stagiaire } from '../../../models/stagiaire';
+import { HeaderMenuDataService } from '../../../services/header-menu.service';
+import { MENU } from '../../../utils/menu';
 
 @Component({
   selector: 'app-planning',
@@ -11,12 +13,15 @@ import { Stagiaire } from '../../../models/stagiaire';
 export class PlanningComponent implements OnInit {
 
   username:             String;
-  alertPlanningList:   Array<any>;
+  alertPlanningList:    Array<any>;
 
-    constructor() { }
+  constructor(
+    private menuService:  HeaderMenuDataService,
+  )
+  { }
 
   ngOnInit() {
-    this.username = sessionStorage.getItem('username');
     registerLocaleData(localeFr);
+    this.menuService.changeMessage(MENU.planning);
   }
 }

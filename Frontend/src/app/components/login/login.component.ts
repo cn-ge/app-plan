@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 import { User } from '../../models/user';
 import { ActivityLog } from '../../models/activitylog';
 import { ActivityLogService } from '../../services/activitylog.service';
+import { HeaderMenuDataService } from '../../services/header-menu.service';
+import { MENU } from '../../utils/menu';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +18,9 @@ import { ActivityLogService } from '../../services/activitylog.service';
 })
 export class LoginComponent implements OnInit {
   
-  activityLog:ActivityLog = null;
-  currentUser: User;
+  message :         string;
+  activityLog :     ActivityLog = null;
+  currentUser :     User;
 
   public form = {
     email: null,
@@ -34,15 +37,16 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private activityLogService: ActivityLogService,
     private datePipe: DatePipe,
+    private menuService : HeaderMenuDataService,
   ) { }
 
   ngOnInit() {
     this.form.email = this.cookieService.get('user_email');
+    this.menuService.changeMessage(MENU.login);
   }
 
   // vérification des informations du formulaire
   onSubmit(){
-    this.cookieService.set('user_email', this.form.email);
     return this.loginService.login(this.form).subscribe(
       data => {
         this.handleResponse(data);
@@ -60,15 +64,16 @@ export class LoginComponent implements OnInit {
 
   // traitement de la réponse
   handleResponse(data) { 
+    this.cookieService.set('user_email', this.form.email);
     if (data.user_is_active == true) {
       this.tokenService.handleToken(data.access_token);
       this.userService.getUser(data.user_id).subscribe(
         (data: User) => {
           this.currentUser = data;
-          this.userService.setUser(this.currentUser);
           this.loginService.changeAuthStatus(true);
+          this.userService.setUser(this.currentUser);
           this.createActivityLog('Connexion réussie', true);
-          this.router.navigateByUrl('/planning');
+          this.router.navigateByUrl('/plaanning');
         },
         error => {
           if (error.status == '0') {
@@ -92,7 +97,6 @@ export class LoginComponent implements OnInit {
     this.activityLog.subject_type=action;
     this.activityLog.causer_id= (result ? (JSON.parse(sessionStorage.getItem('user')).id) : 0);
     this.activityLog.causer_type='Login';
-    var date = new Date();
     this.activityLog.properties= this.datePipe.transform(new Date(),"yyyy-MM-dd HH:mm", 'fr-Fr');
     this.activityLogService.storeActivityLog(this.activityLog).subscribe(
       data => console.log("log d'activité enregistré"), 

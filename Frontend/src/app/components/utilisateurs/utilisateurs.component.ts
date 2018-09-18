@@ -5,6 +5,8 @@ import { ROLES } from '../../utils/role';
 import { ActivityLog } from '../../models/activitylog';
 import { ActivityLogService } from '../../services/activitylog.service';
 import { DatePipe } from '@angular/common';
+import { HeaderMenuDataService } from '../../services/header-menu.service';
+import { MENU } from '../../utils/menu';
 
 @Component({
   selector: 'app-utilisateurs',
@@ -26,9 +28,11 @@ export class UtilisateursComponent implements OnInit {
     private userService: UserService,
     private activityLogService: ActivityLogService,
     private datePipe: DatePipe,
-  ) { } 
-
+    private menuService:  HeaderMenuDataService,
+  ) { }
+  
   ngOnInit() {
+    this.menuService.changeMessage(MENU.utilisateurs);
     this.getUsers();
     this.currentUser = JSON.parse(sessionStorage.getItem('user'));
   }

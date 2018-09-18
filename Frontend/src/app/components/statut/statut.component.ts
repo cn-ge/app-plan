@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StatusService } from '../../services/status.service';
+import { HeaderMenuDataService } from '../../services/header-menu.service';
+import { MENU } from '../../utils/menu';
 
 @Component({
   selector: 'app-statut',
@@ -17,9 +19,11 @@ export class StatutComponent implements OnInit {
 
   constructor(
     private statusService : StatusService,
+    private menuService:  HeaderMenuDataService,
   ) { }
-
+  
   ngOnInit() {
+    this.menuService.changeMessage(MENU.statut);
     this.getBackEndService();
     this.getErpDatabaseService();
     this.getEniDatabaseService();

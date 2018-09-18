@@ -4,7 +4,7 @@ import { ComplementaryModule } from '../../../models/complementary-module';
 import { ComplementaryModuleService} from '../../../services/complementary-module.service';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
-import { DataService } from '../../../services/data.service';
+import { ComplementaryModuleDataService } from '../../../services/complementary-module-data.service';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class CreateModuleComponent implements OnInit  {
   @Output() closed = new EventEmitter<string>();
   sendMessage() {
     this.closed.emit(this.message);
-    this.data.changeMessage(this.message);
+    this.dataService.changeMessage(this.message);
   }
   
   label: string;
@@ -33,12 +33,12 @@ export class CreateModuleComponent implements OnInit  {
   constructor(
     private complementaryModuleService: ComplementaryModuleService,
     private modalService: NgbModal,
-    private data: DataService,
+    private dataService : ComplementaryModuleDataService,
   ) {  }
 
   ngOnInit() {
     registerLocaleData(localeFr);
-    this.data.currentMessage.subscribe(message => this.message = message);
+    this.dataService.currentMessage.subscribe(message => this.message = message);
   }
 
 

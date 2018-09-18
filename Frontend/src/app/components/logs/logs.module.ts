@@ -9,7 +9,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LogsRoutingModule } from './logs-routing.module';
 import { LogsComponent } from './logs.component';
 import { HeaderComponent } from './header/header.component';
-import { MenuModule } from '../layout/menu/menu.module';
 import { LogsPurgerComponent } from './logs-purger/logs-purger.component';
 import { MatButtonModule, MatCheckboxModule, MatDatepickerModule, MAT_DATE_FORMATS } from '@angular/material';
 import { MatMomentDateModule, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
@@ -20,7 +19,6 @@ import { MatMomentDateModule, MAT_MOMENT_DATE_FORMATS } from '@angular/material-
     MDBBootstrapModule.forRoot(),
     AngularFontAwesomeModule,
     LogsRoutingModule,
-    MenuModule,
     FormsModule,
     MatButtonModule,
     MatCheckboxModule,

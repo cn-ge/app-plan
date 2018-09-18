@@ -1,5 +1,10 @@
-<a class="navbar-brand"><i class="fa fa-home fa-2x menu-icon mr-3" data-toggle="modal" data-target="#modal-menu" (click)="modalMenu.show()"></i></a>
-
+<a *ngIf="loggedIn" data-toggle="modal" data-target="#modal-menu" (click)="modalMenu.show()" placement="bottom">
+	<i class="fa fa-home"></i>
+</a>
+<a *ngIf="!loggedIn" >
+	<img class="navbar-item" src="./assets/logo-eni.png" />
+</a>
+	
 <div mdbModal #modalMenu="mdb-modal" class="modal fade" id="modal-menu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fluid" role="document">
         <div class="modal-content">

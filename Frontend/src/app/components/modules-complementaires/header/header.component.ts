@@ -4,7 +4,7 @@ import { UserService } from '../../../services/user.service';
 import { LoginService } from '../../../services/login.service';
 import { TokenService } from '../../../services/token.service';
 import { User } from '../../../models/user';
-import { ClearsessionService } from '../../../services/clearsession.service';
+import { SessionService } from '../../../services/session.service';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
       private router: Router,
       private userService: UserService,
       private token: TokenService,
-      private clearSessionService: ClearsessionService,
+      private sessionService: SessionService,
     ) {}
 
     ngOnInit() {
@@ -36,6 +36,6 @@ export class HeaderComponent implements OnInit {
       this.router.navigateByUrl('/login');
       this.userService.unsetUser();
       this.token.remove();
-      this.clearSessionService.run();
+      this.sessionService.run();
     }
 }

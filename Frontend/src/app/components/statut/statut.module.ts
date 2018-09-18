@@ -6,7 +6,6 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { StatutRoutingModule } from './statut-routing.module';
 import { StatutComponent } from './statut.component';
 import { HeaderComponent } from './header/header.component';
-import { MenuModule } from '../layout/menu/menu.module';
 
 @NgModule({
   	imports: [
@@ -14,7 +13,6 @@ import { MenuModule } from '../layout/menu/menu.module';
     	MDBBootstrapModule.forRoot(),
     	AngularFontAwesomeModule,
     	StatutRoutingModule,
-    	MenuModule
   	],
   	declarations: [
   		StatutComponent,

@@ -6,7 +6,6 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { MonCompteRoutingModule } from './mon-compte-routing.module';
 import { MonCompteComponent } from './mon-compte.component';
-import { MenuModule } from '../layout/menu/menu.module';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { HeaderComponent } from './header/header.component';
     MDBBootstrapModule.forRoot(),
     AngularFontAwesomeModule,
     MonCompteRoutingModule,
-    MenuModule,
     FormsModule,
   ],
   declarations: [

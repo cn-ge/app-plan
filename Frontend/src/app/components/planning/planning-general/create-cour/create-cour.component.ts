@@ -1,12 +1,12 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { NgbModal, ModalDismissReasons, NgbDateStruct, NgbCalendar, NgbModule, NgbDate } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbDateStruct, NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { ComplementaryModule } from '../../../../models/complementary-module';
 import { ComplementaryModuleService} from '../../../../services/complementary-module.service';
 import { ComplementaryCours } from '../../../../models/complementary-cours';
 import { ComplementaryCoursService } from '../../../../services/complementary-cours.service';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
-import { DataService } from '../../../../services/data.service';
+import { ComplementaryCourseDataService } from '../../../../services/complementary-course-data.service';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class CreateCourComponent implements OnInit  {
   @Output() closed = new EventEmitter<string>();
   sendMessage() {
     this.closed.emit(this.message);
-    this.data.changeMessage('newCours');
+    this.dataService.changeMessage('newCours');
   }
 
   // Message from create Module
@@ -55,7 +55,7 @@ export class CreateCourComponent implements OnInit  {
     private calendar: NgbCalendar,
     private complementaryModuleService: ComplementaryModuleService,
     private complementaryCoursService: ComplementaryCoursService,
-    private data: DataService,
+    private dataService: ComplementaryCourseDataService,
   ) {
     registerLocaleData(localeFr);
   }

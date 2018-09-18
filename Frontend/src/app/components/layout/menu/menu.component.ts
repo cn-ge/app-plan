@@ -1,5 +1,5 @@
 import { Component, OnInit, Input  } from '@angular/core';
-import { CommonModule } from "@angular/common";
+import { UserService } from "../../../services/user.service";
 import { User } from '../../../models/user';
 
 @Component({
@@ -9,14 +9,19 @@ import { User } from '../../../models/user';
 })
 export class MenuComponent implements OnInit {
 
-    currentUser: User;
-    @Input() userRole: number; 
+    private loggedIn:     boolean    = false;
+    private user:         User       = null;
+    private userRole:     number     = 0; 
 
-  	constructor() { }
+  	constructor(
+      private userService : UserService,
+    ) { }
 
   	ngOnInit() {
-      this.currentUser = JSON.parse(sessionStorage.getItem('user'));
-      this.userRole  = this.currentUser.role_id;
+      this.loggedIn = this.userService.isLogged();
+      this.user = this.userService.getCurrentUser();
+      if (this.user) {
+        this.userRole = this.user.role_id;
+      }
     }
-
 }

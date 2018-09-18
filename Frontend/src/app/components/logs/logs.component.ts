@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivityLog } from '../../models/activityLog';
 import { ActivityLogService } from '../../services/activitylog.service';
+import { HeaderMenuDataService } from '../../services/header-menu.service';
+import { MENU } from '../../utils/menu';
+import { registerLocaleData } from '@angular/common';
 
 @Component({
   selector: 'app-logs',
@@ -17,9 +20,11 @@ export class LogsComponent implements OnInit {
 
   constructor(
     private activityLogService: ActivityLogService,
+    private menuService:  HeaderMenuDataService,
   ) { }
 
   ngOnInit() {
+    this.menuService.changeMessage(MENU.log);
     this.getActivityLogs();
     if (this.activityLogs != null) { this.sortBy('date') };
   }

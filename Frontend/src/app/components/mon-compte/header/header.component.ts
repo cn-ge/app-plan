@@ -4,7 +4,7 @@ import { LoginService } from '../../../services/login.service';
 import { UserService } from '../../../services/user.service';
 import { TokenService } from '../../../services/token.service';
 import { User } from '../../../models/user';
-import { ClearsessionService } from '../../../services/clearsession.service';
+import { SessionService } from '../../../services/session.service';
 
 @Component({
   selector: 'mon-compte-header',
@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
     private router:         Router,
     private userService:    UserService,
     private tokenService:   TokenService,
-    private clearSessionService: ClearsessionService,
+    private clearSessionService: SessionService,
   ) { }
 
   ngOnInit(  ) {
@@ -36,14 +36,5 @@ export class HeaderComponent implements OnInit {
 
   changerCompte() {
     this.messageChangeCompteEvent.emit('editCompte');
-  }
-
-  logout(event: MouseEvent) {
-    event.preventDefault();
-    this.login.changeAuthStatus(false);
-    this.userService.unsetUser();
-    this.tokenService.remove();
-    this.router.navigateByUrl('/login');
-    this.clearSessionService.run();
   }
 }

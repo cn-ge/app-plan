@@ -4,7 +4,7 @@ import { UserService } from '../../../services/user.service';
 import { TokenService } from '../../../services/token.service';
 import { Router } from '@angular/router';
 import { User } from '../../../models/user';
-import { ClearsessionService } from '../../../services/clearsession.service';
+import { SessionService } from '../../../services/session.service';
 
 @Component({
   selector: 'utilisateurs-header',
@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
       private router: Router,
       private userService: UserService,
       private token: TokenService,
-      private clearsessionService: ClearsessionService,
+      private clearsessionService: SessionService,
     ) {}
 
     ngOnInit() {

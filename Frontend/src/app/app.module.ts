@@ -12,10 +12,12 @@ import {
  } from '@angular/material';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { MenuComponent } from './components/layout/menu/menu.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
+import { HeaderComponent } from './components/layout/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { DataService } from './services/data.service';
+import { HeaderLoginDataService } from './services/header-login.service';
 
 
 @NgModule({
@@ -29,7 +31,10 @@ export class AngularMaterialModule {}
 
 @NgModule({
   declarations: [
-      AppComponent, FooterComponent
+      AppComponent,
+      FooterComponent,
+      HeaderComponent,
+      MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,7 @@ export class AngularMaterialModule {}
   providers: [
     CookieService,
     DatePipe,
-    DataService,
+    HeaderLoginDataService,
   ],
   bootstrap: [AppComponent]
 })

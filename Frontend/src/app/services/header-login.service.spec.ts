@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { DataService } from './data.service';
+import { HeaderLoginDataService } from './headerLoginData.service';
 
 describe('DataService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DataService]
+      providers: [HeaderLoginDataService]
     });
   });
 
-  it('should be created', inject([DataService], (service: DataService) => {
+  it('should be created', inject([HeaderLoginDataService], (service: HeaderLoginDataService) => {
     expect(service).toBeTruthy();
   }));
 });

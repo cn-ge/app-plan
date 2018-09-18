@@ -6,8 +6,6 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ModelesRoutingModule } from './modeles-routing.module';
 import { ModelesGeneralComponent } from './modeles-general/modeles-general.component';
 import { PurgerModelesComponent } from './purger-modeles/purger-modeles.component';
-import { HeaderComponent } from './header/header.component';
-import { MenuModule } from '../layout/menu/menu.module';
 
 @NgModule({
   imports: [
@@ -15,12 +13,10 @@ import { MenuModule } from '../layout/menu/menu.module';
     MDBBootstrapModule.forRoot(),
     AngularFontAwesomeModule,
     ModelesRoutingModule,
-    MenuModule
   ],
   declarations: [
   	ModelesGeneralComponent, 
     PurgerModelesComponent, 
-    HeaderComponent
   ],
   schemas: [ NO_ERRORS_SCHEMA ]
 })

@@ -18,7 +18,7 @@ import { EntrepriseService } from '../../../../services/entreprise.service';
 import { ComplementaryCours } from '../../../../models/complementary-cours'
 import { ComplementaryModule } from '../../../../models/complementary-module'
 import { ComplementaryModuleService } from '../../../../services/complementary-module.service';
-import { DataService } from '../../../../services/data.service';
+import { ComplementaryCourseDataService } from '../../../../services/complementary-course-data.service';
 
 
 @Component({
@@ -54,7 +54,7 @@ export class LeftPanelComponent implements OnInit {
 		private stagiaireParEntrepriseService: StagiaireparentrepriseService,
 		private entrepriseService: 	    EntrepriseService,
 		private complementaryModuleService:	ComplementaryModuleService,
-		private data: DataService,
+		private dataService: ComplementaryCourseDataService,
 	) { }
 
 	ngOnInit() {
@@ -88,7 +88,7 @@ export class LeftPanelComponent implements OnInit {
 			error => console.error(error)
 		)
 		this.getComplementaryModules();
-		this.data.currentMessage.subscribe(message => {
+		this.dataService.currentMessage.subscribe(message => {
 			this.message = message; 
 			this.getComplementaryModules();	
 		});

@@ -6,6 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
+  
   cookieValue = 'ENIPLANNING';
  
   constructor( 
@@ -13,6 +14,5 @@ export class AppComponent implements OnInit {
   ) { }
  
   ngOnInit(): void {
-    this.cookieService.set( 'application', this.cookieValue);
   }
 }
